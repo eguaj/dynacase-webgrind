@@ -1,4 +1,4 @@
 <?php
 $title = "Webgrind";
-$description = "Analyse Xdebug profling traces";
+$description = "Analyse Xdebug profiling traces";
 $start = "webgrind.php";
