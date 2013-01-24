@@ -1,0 +1,5 @@
+DirectoryIndex index.php
+<FilesMatch "^[^.].*$">
+  Order Deny,Allow
+  Allow from All
+</FilesMatch>
