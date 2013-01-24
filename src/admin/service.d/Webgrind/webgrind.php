@@ -86,7 +86,7 @@ function disable_profiling($htAccess, $config) {
 }
 
 function delete_trace($traceDir, $trace) {
-	if (strpos($trace, '/') !== false) {
+	if (strpos($trace, '/') !== false || substr($trace, 0, 1) == '.') {
 		throw new Exception(sprintf("Invalid trace name '%s'.", $trace));
 	}
 	$tracePath = $traceDir . DIRECTORY_SEPARATOR . $trace;
@@ -145,20 +145,26 @@ function pe($s) {
 .false {
 	color: red;
 }
+.error_message {
+	color: red;
+}
 </style>
 </head>
 <body>
-<div>
+
+<div class="xdebug_loaded">
 Xdebug extension is
 <?php
 	p($xdebugIsLoaded?'<span class="true">loaded</span>':'<span class="false">not loaded</span>')
 ?>
 .
 </div>
-<div>
+
 <?php
 	if($xdebugIsLoaded) {
 ?>
+
+<div class="php_ini">
 <p>Xdebug profiling PHP INI configuration:</p>
 <pre>
 <?php
@@ -167,22 +173,22 @@ Xdebug extension is
 	}
 ?>
 </pre>
-<div>
-[<a href="?enable_profiling">Enable profiling</a>] [<a href="?disable_profiling">Disable profiling</a>]
 </div>
-<div>
+
+<div class="button_bar">
+[<a href="?enable_profiling">Enable profiling</a>] [<a href="?disable_profiling">Disable profiling</a>] [<a href="webgrind">Run webgrind</a>]
+</div>
+
+<div class="error_message">
 <pre>
 <?php
 	pe($error)
 ?>
 </pre>
 </div>
-</div>
-<div>
-[<a href="webgrind">Run webgrind!</a>]
-</div>
-<div>
-<p>Traces:</p>
+
+<div class="trace_list">
+<p><a href="traces/">Traces</a>:</p>
 <ul>
 <?php
 	foreach ($traceList as $f) {
@@ -193,7 +199,9 @@ Xdebug extension is
 ?>
 </ul>
 </div>
+
 <?php
 	} // xdebugIsLoaded
 ?>
+
 </body>

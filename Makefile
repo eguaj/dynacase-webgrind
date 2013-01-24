@@ -12,3 +12,7 @@ tmp/content.tar.gz: src tmp
 
 tmp/info.xml: info.xml tmp
 	cp $< $@
+
+clean:
+	rm -Rf tmp
+	rm -f dynacase-webgrind-*.webinst
