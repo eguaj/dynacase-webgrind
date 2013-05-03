@@ -3,7 +3,7 @@
 include_once ('../../../WHAT/Lib.Prefix.php');
 
 $htAccess = '../../../.htaccess';
-$traceDir = join(DIRECTORY_SEPARATOR, array(DEFAULT_PUBDIR, 'admin', 'service.d', 'Webgrind', 'traces'));
+$traceDir = join(DIRECTORY_SEPARATOR, array(DEFAULT_PUBDIR, 'supervisor', 'service.d', 'Webgrind', 'traces'));
 
 $xdebugIsLoaded = extension_loaded('xdebug');
 
@@ -193,7 +193,7 @@ Xdebug extension is
 <?php
 	foreach ($traceList as $f) {
 ?>
-<li>[<a href="?delete_trace&trace=<?php pe($f) ?>">delete</a>] [<a href="?download_trace&trace=<?php pe($f) ?>">download</a>] <?php pe($f) ?></li>
+<li>[<a href="?delete_trace&amp;trace=<?php pe($f) ?>">delete</a>] [<a href="?download_trace&amp;trace=<?php pe($f) ?>">download</a>] <?php pe($f) ?></li>
 <?php
 	}
 ?>
