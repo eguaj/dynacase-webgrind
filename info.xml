@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module name="dynacase-webgrind" version="1.0" release="1" />
+<module name="dynacase-webgrind" version="1.0" release="2">
+	<requires>
+		<module name="dynacase-core" comp="ge" version="3.2.0"/>
+	</requires>
+</module>
