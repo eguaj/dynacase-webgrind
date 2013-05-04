@@ -1,5 +1,5 @@
 VERSION=1.0
-RELEASE=1
+RELEASE=2
 
 webinst:
 	mkdir -p tmp
